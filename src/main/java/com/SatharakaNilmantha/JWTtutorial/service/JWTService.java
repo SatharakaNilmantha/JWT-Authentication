@@ -34,11 +34,11 @@ public class JWTService {
 
     public String getJWTToken() {
         return Jwts.builder()
-                .subject("satharaka")                            // 👤 Token එකට subject (user name / user id) set කරනවා
-                .issuedAt(new Date(System.currentTimeMillis()))     // 🕒 Token issue කරන time එක
+                .subject("satharaka")                                              // 👤 Token එකට subject (user name / user id) set කරනවා
+                .issuedAt(new Date(System.currentTimeMillis()))                       // 🕒 Token issue කරන time එක
                 .expiration(new Date(System.currentTimeMillis()+ 1000 * 60 * 15))     // ⏳ Expiration time (මේකේ 15 minutes)
-                .signWith(secretKey)                                // 🔑 SecretKey එක use කරලා token එක sign කරනවා
-                .compact();                                         // 📦 Token එක final string එකක් return කරනවා
+                .signWith(secretKey)                                                  // 🔑 SecretKey එක use කරලා token එක sign කරනවා
+                .compact();                                                           // 📦 Token එක final string එකක් return කරනවා
     }
 
 //------------Step 03 → JWT Token එකෙන් username extract කිරීම --------------------------------//
