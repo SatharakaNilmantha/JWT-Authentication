@@ -8,12 +8,21 @@ import org.springframework.web.bind.annotation.*;
 @RequestMapping(value = "/home")
 public class HomeController {
 
-
+//--------------------------------------------------------------------
     private  final JWTService jwtService ;
 
     public HomeController(JWTService jwtService) {
         this.jwtService = jwtService;
     }
+
+
+   /*
+    @Autowired
+    private JWTService jwtService;  // directly injected here
+   */
+
+//------------------------------------------------------------------------
+
 
     @GetMapping("/GET")
     public  String GetString (){
@@ -28,8 +37,8 @@ public class HomeController {
         return tokenRespond ;
     }
 
-    @GetMapping("/username/{token}")
-    public String getUserName (@PathVariable String token){
+    @GetMapping("/username")
+    public String getUserName (@RequestParam String token){
         String getRespond = jwtService.getUserName(token);
         return  getRespond ;
     }
