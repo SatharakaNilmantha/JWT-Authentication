@@ -39,6 +39,8 @@ public class SecurityConfig {
     }
 
 
+    // 🔑 DaoAuthenticationProvider එක configure කරනවා
+    // (UserDetailsService + PasswordEncoder එක use කරන authentication provider එකක්)
     @Bean
     public DaoAuthenticationProvider daoAuthenticationProvider (){
 
@@ -49,15 +51,20 @@ public class SecurityConfig {
         return provider;
     }
 
+    // 🔐 Password encode / hash කරන්න use කරන PasswordEncoder එක define කරනවා
+    // 💡 User එක DB එකේ save වෙලා තියෙන password එක compare කරන වෙලාවට මේ encoder එක භාවිතා වෙනවා
     @Bean
     public PasswordEncoder passwordEncoder(){
-        return new BCryptPasswordEncoder(12);
+        return new BCryptPasswordEncoder(12);   // (BCrypt algorithm එක use කරනවා – strength = 12)
     }
 
+    // 👤 User details load කරන්න custom UserDetailsService එකක් register කරනවා
+    // 💡 Login වෙන්න යන user එකගේ username & password load කරලා validate කරනවා
     @Bean
     public UserDetailsService userDetailsService(){
         return new MyUserDetailsService();
     }
+
 
 
 }

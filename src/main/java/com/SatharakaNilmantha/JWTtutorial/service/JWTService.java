@@ -44,12 +44,17 @@ public class JWTService {
 //------------Step 03 → JWT Token එකෙන් username extract කිරීම --------------------------------//
 
     public String getUserName(String token) {
-        return Jwts
-                .parser()                                           // 🛠️ Parser එකක් build කරනවා
-                .verifyWith(secretKey).build()                      // 🔑 Sign verify කරන්න SecretKey එක දෙනවා
-                .parseSignedClaims(token)                           // 📩 Signed token එක parse කරනවා
-                .getPayload()                                       // 📦 Token payload එක (claims)
-                .getSubject();                                      // 👤 Subject (username) extract කරනවා
+        try {
+            return Jwts
+                    .parser()                                           // 🛠️ Parser එකක් build කරනවා
+                    .verifyWith(secretKey).build()                      // 🔑 Sign verify කරන්න SecretKey එක දෙනවා
+                    .parseSignedClaims(token)                           // 📩 Signed token එක parse කරනවා
+                    .getPayload()                                       // 📦 Token payload එක (claims)
+                    .getSubject();                                      // 👤 Subject (username) extract කරනවා
+        }catch (Exception e){
+            return "token is not correct";
+        }
+
     }
 
 }
