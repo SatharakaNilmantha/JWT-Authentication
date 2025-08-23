@@ -50,6 +50,31 @@
 			<scope>test</scope>
 		</dependency>
 
+
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-data-mongodb</artifactId>
+		</dependency>
+
+
+
+
+		<!-- Lombok -->
+		<dependency>
+			<groupId>org.projectlombok</groupId>
+			<artifactId>lombok</artifactId>
+			<version>1.18.30</version>
+			<scope>provided</scope>
+		</dependency>
+
+		<!-- ModelMapper -->
+		<dependency>
+			<groupId>org.modelmapper</groupId>
+			<artifactId>modelmapper</artifactId>
+			<version>2.4.4</version>
+		</dependency>
+
+
 		<!-- 🔑 JWT library එක add කරනවා (ඇත්තටම මේ dependency තුනම එකට යන්න ඕන) -->
 
 		<dependency>
